@@ -53,7 +53,10 @@ export default function Home(props) {
   );
   //listening to post messages for the hash value
   window.addEventListener("message", async (e) => {
-    console.log("Event:",e)  
+    console.log("Event:",e) 
+    if(e.data){
+      console.log("DATA". e.data)
+    } 
   });
   }, [])
   return (
