@@ -1,7 +1,8 @@
 import Contentstack from 'contentstack'
 import ContentstackLivePreview from "@contentstack/live-preview-utils";
 
-export const Stack = Contentstack.Stack({ 
+export const Stack = Contentstack.Stack(
+{ 
   api_key: process.env.api_key,
   delivery_token: process.env.delivery_token,
   environment: process.env.environment,
@@ -10,7 +11,8 @@ export const Stack = Contentstack.Stack({
     enable: true,
     host: 'api.contentstack.io'
   }
-})
+}
+)
 
   
 Stack.setHost("api.contentstack.io")

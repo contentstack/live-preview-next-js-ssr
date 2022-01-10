@@ -59,7 +59,7 @@ export default function Home(props) {
   )
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   let entry = await fetchData("ashwini_live_preview", "blt8a69169a533e195a");
   return { props: 
     {...entry} 
