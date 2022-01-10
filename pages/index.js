@@ -1,30 +1,15 @@
-import Contentstack from "contentstack"
-import { useEffect, useState } from "react";
-import { onEntryChange } from "./api/utils";
 import {Stack} from './api/utils'
-
-
-// let apiUrl = `https://api.contentstack.io/v3/content_types/ashwini_live_preview/entries/blt8a69169a533e195a?`
-// const Stack = Contentstack.Stack(
-//  {
-//   api_key: process.env.api_key,
-//   delivery_token: process.env.delivery_token,
-//   environment: process.env.environment
-//  }
-// );
-
 
 function fetchData (contentType, entryId){
   try{
       if(entryId){
           let Query = Stack.ContentType(contentType).Entry(entryId);
-          let entry = Query.fetch()
+          return Query.fetch()
           .then(function success(entry) {
               return entry.toJSON();
           }, function error(err) {
             console.log("Error", err);
           });
-          return entry;
       }
       else{
           let Query = Stack.ContentType(contentType).Query();
@@ -40,29 +25,24 @@ function fetchData (contentType, entryId){
 }
 
 export default function Home(props) {
-  console.log("PROPS", props)
-  const [entry, setEntry] = useState(props)
-
-  const updatedData = async() => {
-    let updatedEntry = await fetchData("ashwini_live_preview", "blt8a69169a533e195a")
-    setEntry(updatedEntry)
-  }
-
-  useEffect(() => {
-    onEntryChange(updatedData)
-  }, [])
-  console.log("updated entry", entry)
+  const {entry} = props
   return (
     <div>
-      <h1>{"HELLO WORLD"}</h1>
+      <h1>{entry?.title}</h1>
+      <p>{entry?.single_line}</p>
     </div>
   )
 }
 
-export const getStaticProps = async (context) => {
-  let entry = await fetchData("ashwini_live_preview", "blt8a69169a533e195a");
+export const getServerSideProps = async (context) => {
+  if(context.query){
+    Stack.livePreviewQuery(context.query)
+  }
+  let entry = await fetchData(process.env.content_type_uid, process.env.entry_uid);
   return { props: 
-    {...entry} 
+    {
+      entry
+    }
   }
  
 }
