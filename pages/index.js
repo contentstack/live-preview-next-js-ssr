@@ -1,16 +1,17 @@
 import Contentstack from "contentstack"
 import { useEffect, useState } from "react";
 import { onEntryChange } from "./api/utils";
+import {Stack} from './api/utils'
 
 
 // let apiUrl = `https://api.contentstack.io/v3/content_types/ashwini_live_preview/entries/blt8a69169a533e195a?`
-const Stack = Contentstack.Stack(
- {
-  api_key: process.env.api_key,
-  delivery_token: process.env.delivery_token,
-  environment: process.env.environment
- }
-);
+// const Stack = Contentstack.Stack(
+//  {
+//   api_key: process.env.api_key,
+//   delivery_token: process.env.delivery_token,
+//   environment: process.env.environment
+//  }
+// );
 
 
 function fetchData (contentType, entryId){
