@@ -1,5 +1,6 @@
 import Contentstack from "contentstack"
 import { useEffect } from "react";
+// import Contentstack from 'contentstack'
 
 const Stack = Contentstack.Stack(
  {
