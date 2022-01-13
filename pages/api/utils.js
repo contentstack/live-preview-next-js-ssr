@@ -1,5 +1,4 @@
 import Contentstack from 'contentstack'
-import ContentstackLivePreview from "@contentstack/live-preview-utils";
 
 export const Stack = Contentstack.Stack(
 { 
@@ -15,6 +14,4 @@ export const Stack = Contentstack.Stack(
 )
 
 Stack.setHost("api.contentstack.io")
-ContentstackLivePreview.init({enable: true,ssr: true, debug: true, stackDetails: {
-  apiKey: process.env.api_key
-}});
+
