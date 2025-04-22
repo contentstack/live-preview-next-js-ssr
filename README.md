@@ -1,6 +1,7 @@
-# Next.js SSR with Contentstack Live preview
+# DEPRECATED
+This is no longer supported
 
-# How to use
+## How to use
 
 1. Create one entry with `title` and `single_line` field.
 2. create `next.config.js` using the `next.config.sample.js`
