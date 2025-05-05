@@ -11,7 +11,7 @@
     "@contentstack/live-preview-utils": "^1.0.1",
     "contentstack": "^3.15.0",
     "dotenv": "^10.0.0",
-    "next": "12.0.7",
+    "next": "12.0.8",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
